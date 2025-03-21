@@ -4,7 +4,7 @@
 - **Frontend**: Next.js (with TypeScript)
 - **Backend**: Next.js API Routes (GraphQL)
 - **Database**: PostgreSQL
-- **Authentication**: Firebase Auth
+- **Authentication**: JWT (jsonwebtoken + bcrypt)
 - **ORM**: Prisma
 - **Testing**: Jest + React Testing Library + Cypress
 
@@ -14,7 +14,6 @@
 Ensure you have the following installed:
 - Node.js (LTS version recommended)
 - PostgreSQL
-- Firebase account (for authentication)
 
 ### Installation Steps
 1. **Clone the repository**
@@ -31,7 +30,7 @@ Ensure you have the following installed:
 
 3. **Install dependencies**
    ```sh
-   npm install @prisma/client graphql @apollo/client firebase dotenv
+   npm install @prisma/client graphql @apollo/client jsonwebtoken bcrypt dotenv
    ```
 
 4. **Set up Prisma**
