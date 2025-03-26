@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import Home from "../pages/index";
+import Home from "../app/page";
 
 test("renders the home page", () => {
   render(<Home />);
-  expect(screen.getByText(/welcome/i)).toBeInTheDocument();
+  expect(screen.getByText(/Learn/i)).toBeInTheDocument();
 });
