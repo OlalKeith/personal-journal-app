@@ -1,18 +1,21 @@
-import { NextRequest } from "next/server";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 const SECRET_KEY = process.env.JWT_SECRET!;
 
-export function verifyToken(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return null;
-  }
+export function verifyToken(
+  token?: string,
+): { userId: string; role: string } | null {
+  if (!token) return null;
 
-  const token = authHeader.split(" ")[1];
   try {
-    return jwt.verify(token, SECRET_KEY);
-  } catch {
+    const decoded = jwt.verify(token, SECRET_KEY) as JwtPayload & {
+      userId: string;
+      role: string;
+    };
+    console.log("Decoded Token:", decoded); // Log the decoded payload
+    return decoded;
+  } catch (error) {
+    console.error("Token verification failed:", error);
     return null;
   }
 }

@@ -8,8 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --config jest.config.ts",
+    "test": "cross-env NODE_ENV=test DOTENV_CONFIG_PATH=.env.test jest --config jest.config.ts",
     "prepare": "husky"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -50,7 +53,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
     "cypress": "^14.2.1",
+    "dotenv-cli": "^8.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
     "husky": "^9.1.7",
