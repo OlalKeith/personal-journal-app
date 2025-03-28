@@ -86,3 +86,18 @@ Ensure you have the following installed:
 ├── package.json     # Dependencies and scripts
 └── README.md        # Project documentation
 ```
+
+### Endpoints Overview
+
+```
+    Create a Journal Entry (POST /api/journal)
+
+    Get All Journal Entries (GET /api/journal)
+
+    Get a Single Journal Entry (GET /api/journal/[id])
+
+    Update a Journal Entry (PUT /api/journal/[id]) - Admins or entry owners only
+
+    Delete a Journal Entry (DELETE /api/journal/[id]) - Admins only
+
+```
